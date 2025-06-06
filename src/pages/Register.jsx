@@ -67,15 +67,12 @@ const Register = () => {
           src={Logo1}
           alt="Logo1"
           style={{
-            position: 'absolute',
-            top: 40,
-            left: 40,
-            width: 120,
-            height: 120,
+            width: 180,
+            height: 180,
             objectFit: 'contain',
           }}
         />
-        <div style={{ marginTop: 60, textAlign: 'center' }}>
+        <div style={{ marginTop: 0, textAlign: 'center' }}>
           <h1 style={{ fontSize: 48, fontWeight: 700, marginBottom: 16 }}>Welcome</h1>
           <p style={{ fontSize: 20, fontWeight: 400, marginBottom: 20 }}>
             You can sign in to acces with your <br /> existing account.
