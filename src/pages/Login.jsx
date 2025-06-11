@@ -24,6 +24,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
+      // Contoh validasi login sederhana (nanti bisa diganti dengan login API)
+    if (formData.email && formData.password) {
+      // Simulasikan login berhasil
+      navigate('/dashboard');
+    } else {
+      alert('Email dan password wajib diisi.');
+    }
   };
 
   return (
@@ -138,6 +145,9 @@ const Login = () => {
                 fontSize: 16,
                 outline: 'none',
                 marginBottom: 16,
+                backgroundColor: '#fff',
+                color: '#333',
+
               }}
               required
             />
@@ -168,6 +178,8 @@ const Login = () => {
                 fontSize: 16,
                 outline: 'none',
                 marginBottom: 8,
+                backgroundColor: '#fff',
+                color: '#333',
               }}
               required
             />
@@ -194,9 +206,15 @@ const Login = () => {
                 name="remember"
                 checked={formData.remember}
                 onChange={handleChange}
-                style={{ accentColor: '#6C47FF' }}
+                style={{ 
+                  accentColor: '#6C47FF',
+                  width: 16,
+                  height: 16, 
+                }}
               />
-              Remember me
+              <span style={{ marginLeft: 8, fontSize: 14, color: '#000000' }}>
+                Remember me
+              </span>
             </label>
             <a href="#" style={{ color: '#444', textDecoration: 'none' }}>Forgot password?</a>
           </div>

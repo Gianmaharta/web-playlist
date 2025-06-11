@@ -1,9 +1,11 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  text-align: start;
 }
+
+
 
 .logo {
   height: 6em;
@@ -47,4 +49,39 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+}
+
+.ant-menu-dark .ant-menu-item {
+  margin-bottom: 12px; /* jarak antar tombol */
+}
+
+/* Jika kamu pakai CSS module atau global CSS */
+.custom-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* warna placeholder */
+}
+
+.custom-purple-card {
+  background-color: #5C317D;
+  color: white;
+  border: 1px solid white;
+}
+
+.custom-purple-card .ant-card-meta-title,
+.custom-purple-card .ant-card-meta-description {
+  color: white !important;
+}
+
+.custom-purple-card .ant-card-actions {
+  background-color: #5C317D;
+  border-top: 1px solid white;
+}
+
+.custom-purple-card .ant-card-actions > li {
+  color: white !important;
+}
+
+
+.custom-float-button .ant-float-btn-body {
+  background-color: #5e2b97 !important;
+  color: white !important;
 }
