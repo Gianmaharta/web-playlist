@@ -68,7 +68,7 @@ const Dashboard = () => {
                   height: '100%',
                   width: '100%',
                 }}>
-                  <PlusOutlined style={{ color: 'white', fontSize: 20 }} />
+                  <PlusOutlined style={{ color: 'white', fontSize: 32 }} />
                 </div>
               }
               onClick={showDrawer}
@@ -78,7 +78,8 @@ const Dashboard = () => {
                 bottom: 24,
                 backgroundColor: '#5e2b97',
                 border: 'none',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                width: 64,      // Tambahkan ini untuk memperbesar tombol
+                height: 64,     // Tambahkan ini untuk memperbesar tombol
               }}
             />
 

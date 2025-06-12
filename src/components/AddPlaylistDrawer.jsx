@@ -30,11 +30,19 @@ const AddPlaylistDrawer = ({ open, onClose, onFinish, form }) => {
         </Form.Item>
 
         <Form.Item
-          label={<span style={{ color: 'white' }}>Url</span>}
-          name="url"
+          label={<span style={{ color: 'white' }}>Url Youtube</span>}
+          name="url youtube"
           rules={[{ required: true, message: 'Masukkan URL' }]}
         >
-          <Input placeholder="Contoh: https://..." style={{ color: '#333', fontWeight: 500 }}/>
+          <Input placeholder="Contoh: https://youtu.be/..." style={{ color: '#333', fontWeight: 500 }}/>
+        </Form.Item>
+
+        <Form.Item
+          label={<span style={{ color: 'white' }}>Url Thumbnail Youtube</span>}
+          name="url thumbnail"
+          rules={[{ required: true, message: 'Masukkan URL thumbnail' }]}
+        >
+          <Input placeholder="Contoh: https://img.youtube.com/..." style={{ color: '#333', fontWeight: 500 }}/>
         </Form.Item>
 
         <Form.Item
@@ -44,10 +52,11 @@ const AddPlaylistDrawer = ({ open, onClose, onFinish, form }) => {
         >
           <Select placeholder="Pilih genre" style={{ color: '#333', fontWeight: 500 }}>
             {/* 👇 Kamu bisa ubah/isi sesuai genre kamu */}
-            <Option value="pop">Songs</Option>
-            <Option value="rock">Video</Option>
-            <Option value="jazz">Movie</Option>
-            <Option value="lofi">Edication</Option>
+            <Option value="Songs">Songs</Option>
+            <Option value="Video">Video</Option>
+            <Option value="Movie">Movie</Option>
+            <Option value="Education">Education</Option>
+            <Option value="Other">Other</Option>
           </Select>
         </Form.Item>
 
