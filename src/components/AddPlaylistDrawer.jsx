@@ -22,9 +22,9 @@ const AddPlaylistDrawer = ({ open, onClose, onFinish, form }) => {
         onFinish={onFinish}
       >
         <Form.Item
-          label={<span style={{ color: 'white' }}>Judul Playlist</span>}
+          label={<span style={{ color: 'white' }}>Judul Lagu</span>}
           name="title"
-          rules={[{ required: true, message: 'Masukkan judul playlist' }]}
+          rules={[{ required: true, message: 'Masukkan judul lagu' }]}
         >
           <Input placeholder="Masukkan judul" style={{ color: '#333', fontWeight: 500 }}/>
         </Form.Item>
@@ -46,17 +46,17 @@ const AddPlaylistDrawer = ({ open, onClose, onFinish, form }) => {
         </Form.Item>
 
         <Form.Item
-          label={<span style={{ color: 'white' }}>Genre</span>}
+          label="Genre"
           name="genre"
           rules={[{ required: true, message: 'Pilih genre' }]}
         >
           <Select placeholder="Pilih genre" style={{ color: '#333', fontWeight: 500 }}>
             {/* 👇 Kamu bisa ubah/isi sesuai genre kamu */}
-            <Option value="Songs">Songs</Option>
-            <Option value="Video">Video</Option>
-            <Option value="Movie">Movie</Option>
-            <Option value="Education">Education</Option>
-            <Option value="Other">Other</Option>
+            <Option value="music">Music</Option>
+            <Option value="song">Song</Option>
+            <Option value="movie">Movie</Option>
+            <Option value="education">Education</Option>
+            <Option value="others">Others</Option>
           </Select>
         </Form.Item>
 

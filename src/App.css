@@ -93,3 +93,7 @@ html, body {
   box-shadow: none !important;
   border: none !important;
 }
+
+.ant-card-cover {
+  background: none !important;
+}

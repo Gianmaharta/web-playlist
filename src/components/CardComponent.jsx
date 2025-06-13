@@ -1,51 +1,97 @@
 import React from 'react';
 import { EditOutlined, DeleteOutlined, PlayCircleOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Card, Popconfirm } from 'antd';
 
 const { Meta } = Card;
 
-const CardComponent = ({ data }) => {
-  const handleDelete = () => {
-    console.log('Delete clicked for', data.title);
+const CardComponent = ({ data, onDelete, onEdit }) => {
+
+  const confirmDelete = () => {
+    if (onDelete) {
+      onDelete(data);
+    }
   };
 
+  // Fungsi untuk menangani klik pada tombol play
   const handlePlay = () => {
-    console.log('Play clicked for', data.title);
+    // Pastikan url youtube valid
+
+    window.open(data.play_url, '_blank', 'noopener,noreferrer');
+  };
+  
+  // Jika onEdit diberikan, gunakan itu untuk menangani klik edit
+  const handleEdit = () => {
+    if (onEdit) {
+      onEdit(data);
+    }
   };
 
   return (
     <Card
-    className="custom-purple-card"
+      className="custom-purple-card"
       style={{
+        border: 'none', // hilangkan border default
+        boxShadow: '0 8px 24px 0 rgba(34, 34, 87, 0.18)',
+        borderRadius: 16,
+        overflow: 'hidden', // agar gambar tidak keluar dari card
+        height: 300,
         width: '100%',
-        borderRadius: 12,
-        backgroundColor: '#5C317D',
-        color: '#fff',
-        border: '1px solid #fff',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
       }}
       bodyStyle={{ color: '#fff' }}
       cover={
         <img
-          alt="cover"
-          src={data.image || 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'} //ini source imagenya
-          style={{ objectFit: 'cover', height: 160 }}
+          alt={data.play_name}
+          src={data.play_thumbnail}
+          style={{
+            height: 140,
+            width: '100%',
+            objectFit: 'cover',
+            margin: 0,
+            border: 'none',
+            display: 'block',
+            padding: 0,
+          }}
         />
       }
+      
       actions={[
         <span key="play" onClick={handlePlay} style={{ color: '#fff' }}>
-            <PlayCircleOutlined />
+          <PlayCircleOutlined />
         </span>,
-        <span key="edit" style={{ color: '#fff' }}>
-            <EditOutlined />
+        <span key="edit" onClick={handleEdit} style={{ color: '#fff' }}>
+          <EditOutlined />
         </span>,
-        <span key="delete" onClick={handleDelete} style={{ color: '#fff' }}>
-            <DeleteOutlined />
-        </span>,
-    ]}
+
+        <Popconfirm
+          title="Delete the task"
+          description="Are you sure to delete this task?"
+          onConfirm={confirmDelete}
+          okText="Yes"
+          cancelText="No"
+        >
+          <DeleteOutlined style={{ color: '#fff'}} />
+        </Popconfirm>,
+      ]}
     >
       <Meta
-        title={<span style={{ color: '#fff' }}>{data.title || 'Judul Default'}</span>}
-        description={<span style={{ color: '#fff' }}>{data.description || 'Deskripsi kosong.'}</span>}
+        title={
+          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {data.play_name}
+          </div>
+        }
+        description={
+          <div style={{
+            maxHeight: 40,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
+          }}>
+            {data.play_description}
+          </div>
+        }
+        
       />
     </Card>
   );

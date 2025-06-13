@@ -29,23 +29,21 @@ function getItem(label, key, icon, children) {
 
 const items = [
   getItem('All', 'all', <AppstoreOutlined />),
-  getItem('Songs', 'songs', <PlayCircleOutlined />),
-  getItem('Video', 'video', <VideoCameraOutlined />),
+  getItem('Music', 'music', <PlayCircleOutlined />),
+  getItem('Song', 'song', <VideoCameraOutlined />),
   getItem('Movie', 'movie', <PlaySquareOutlined/>),
   getItem('Education', 'education', <ReadOutlined />),
-  getItem('Other', 'other', <MoreOutlined />),
+  getItem('Others', 'others', <MoreOutlined />),
 ];
 
-const Sidenav = () => {
+const Sidenav = ({ onGenreChange, activeGenre }) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   const handleMenuClick = (e) => {
-    if (e.key === 'all') {
-      setCollapsed((prev) => !prev);
-    }
+    onGenreChange(e.key); // Panggil fungsi dari parent dengan genre yang dipilih
   };
 
   return (
@@ -64,7 +62,8 @@ const Sidenav = () => {
       <div className="demo-logo-vertical" />
       <Menu
         theme="dark"
-        defaultSelectedKeys={['all']}
+        defaultSelectedKeys={[activeGenre]}
+        selectedKeys={[activeGenre]}
         mode="inline"
         items={items}
         style={{

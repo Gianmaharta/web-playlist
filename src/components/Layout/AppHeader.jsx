@@ -1,8 +1,8 @@
 import React from 'react';
 import { Input } from 'antd';
-import { UserOutlined, SearchOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 
-const AppHeader = () => {
+const AppHeader = ({ onSearch }) => {
   return (
     <div style={{
       position: 'sticky',   // agar tetap di atas
@@ -24,16 +24,17 @@ const AppHeader = () => {
           color: '#5C317D',
           letterSpacing: '0.5px'
         }}>
-          Your Playlist
+          Your Collection
         </h2>
 
-        <p style={{ margin: 0, color: '#888' }}>All collection songs, videos, and films</p>
+        <p style={{ margin: 0, color: '#888' }}>All collection music, song, movie, education and others</p>
       </div>
 
       {/* KANAN: Search + User */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <Input
-          placeholder="Cari Playlist..."
+          placeholder="Cari Koleksi..."
+          onChange={(e) => onSearch(e.target.value)}
           style={{
             width: 250,
             borderRadius: 20,
