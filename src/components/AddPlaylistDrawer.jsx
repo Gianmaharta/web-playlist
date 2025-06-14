@@ -22,7 +22,7 @@ const AddPlaylistDrawer = ({ open, onClose, onFinish, form }) => {
         onFinish={onFinish}
       >
         <Form.Item
-          label={<span style={{ color: 'white' }}>Judul Lagu</span>}
+          label={<span style={{ color: 'white' }}>Judul</span>}
           name="title"
           rules={[{ required: true, message: 'Masukkan judul lagu' }]}
         >
